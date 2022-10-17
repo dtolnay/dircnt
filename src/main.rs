@@ -1,4 +1,4 @@
-#![allow(clippy::let_underscore_drop)]
+#![allow(clippy::let_underscore_drop, clippy::uninlined_format_args)]
 
 use std::env;
 use std::fs;
