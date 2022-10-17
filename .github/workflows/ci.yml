@@ -26,3 +26,12 @@ jobs:
           toolchain: ${{matrix.rust}}
       - run: cargo build
       - run: cargo run
+
+  clippy:
+    name: Clippy
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: dtolnay/rust-toolchain@clippy
+      - run: cargo clippy -- -Dclippy::all -Dclippy::pedantic
