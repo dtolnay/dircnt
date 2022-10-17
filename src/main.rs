@@ -43,8 +43,11 @@ fn try_main() -> io::Result<()> {
 
     let mut count = 0usize;
     for entry in read_dir {
-        entry?;
-        count += 1;
+        if let Err(error) = entry {
+            let _ = writeln!(io::stderr(), "dircnt: {}", error);
+        } else {
+            count += 1;
+        }
     }
     let _ = writeln!(io::stdout(), "{}", count);
     Ok(())
