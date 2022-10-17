@@ -1,3 +1,5 @@
+#![allow(clippy::let_underscore_drop)]
+
 use std::env;
 use std::fs;
 use std::io::{self, Write};
