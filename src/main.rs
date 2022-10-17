@@ -3,6 +3,8 @@ use std::fs;
 use std::io::{self, Write};
 use std::process;
 
+const USAGE: &str = "usage: dircnt [DIR]\n";
+
 fn main() {
     if let Err(error) = try_main() {
         let _ = writeln!(io::stderr(), "dircnt: {}", error);
@@ -15,6 +17,10 @@ fn try_main() -> io::Result<()> {
     let dir = args_os.next();
 
     let read_dir = match dir {
+        Some(flag) if flag == "--help" => {
+            let _ = write!(io::stdout(), "{}", USAGE);
+            process::exit(0);
+        }
         Some(flag) if flag == "--version" => {
             let _ = writeln!(io::stdout(), "dircnt {}", env!("CARGO_PKG_VERSION"));
             process::exit(0);
