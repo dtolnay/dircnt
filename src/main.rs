@@ -15,6 +15,10 @@ fn main() {
 fn try_main() -> io::Result<()> {
     let mut args_os = env::args_os().skip(1);
     let dir = args_os.next();
+    if args_os.next().is_some() {
+        let _ = write!(io::stderr(), "{}", USAGE);
+        process::exit(1);
+    }
 
     let read_dir = match dir {
         Some(flag) if flag == "--help" => {
