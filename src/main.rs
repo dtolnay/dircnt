@@ -15,6 +15,10 @@ fn try_main() -> io::Result<()> {
     let dir = args_os.next();
 
     let read_dir = match dir {
+        Some(flag) if flag == "--version" => {
+            let _ = writeln!(io::stdout(), "dircnt {}", env!("CARGO_PKG_VERSION"));
+            process::exit(0);
+        }
         Some(dir) => fs::read_dir(dir),
         None => fs::read_dir("."),
     }?;
