@@ -29,11 +29,11 @@ fn try_main() -> io::Result<()> {
     }
 
     let read_dir = match dir {
-        Some(flag) if flag == "--help" => {
+        Some(flag) if flag == "-h" || flag == "--help" => {
             let _ = write!(io::stdout(), "{}", USAGE);
             process::exit(0);
         }
-        Some(flag) if flag == "--version" => {
+        Some(flag) if flag == "-V" || flag == "--version" => {
             let _ = writeln!(io::stdout(), "dircnt {}", env!("CARGO_PKG_VERSION"));
             process::exit(0);
         }
