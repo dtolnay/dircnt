@@ -4,7 +4,7 @@
 //! [crates-io]: https://img.shields.io/badge/crates.io-fc8d62?style=for-the-badge&labelColor=555555&logo=rust
 //! [docs-rs]: https://img.shields.io/badge/docs.rs-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs
 
-#![allow(clippy::let_underscore_drop, clippy::uninlined_format_args)]
+#![allow(clippy::uninlined_format_args)]
 
 use std::env;
 use std::fs;
