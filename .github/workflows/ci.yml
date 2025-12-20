@@ -48,7 +48,7 @@ jobs:
         shell: bash
       - run: cargo build
       - run: cargo run
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: matrix.rust == 'nightly' && matrix.os == 'ubuntu' && always()
         with:
           name: Cargo.lock
